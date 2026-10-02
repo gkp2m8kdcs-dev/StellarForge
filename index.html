@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StellarForge — Constellation Atelier</title>
+<meta name="description" content="StellarForge is a single-player constellation weaving atelier. Tap, connect, weave. Forge the night sky.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a14;
+    --bg-2: #12121f;
+    --ink: #e8e8f0;
+    --muted: #9090a8;
+    --accent: #d4af37;
+    --accent-2: #8a6ad4;
+    --line: rgba(255,255,255,0.08);
+  }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { opacity: 0.85; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 18px; letter-spacing: 0.5px;
+  }
+  .brand-mark {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffe9a3 0%, var(--accent) 40%, #6b4d0e 80%);
+    box-shadow: 0 0 18px rgba(212,175,55,0.6);
+  }
+  .nav-links { display: flex; gap: 22px; font-size: 14px; }
+  .nav-links a { color: var(--ink); opacity: 0.8; }
+  .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+  .hero {
+    max-width: 1080px; margin: 0 auto;
+    padding: 96px 24px 72px;
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 64px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #ffe9a3 0%, var(--accent) 35%, var(--accent-2) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+  }
+  .hero p.lede {
+    font-size: 20px;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+  .cta-row {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px; font-weight: 600;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), #b08a1f);
+    color: #1a1407;
+    border: none;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+
+  .stars {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  .stars::before, .stars::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 80% 60%, #fff, transparent),
+      radial-gradient(2px 2px at 40% 70%, #ffe9a3, transparent),
+      radial-gradient(1px 1px at 60% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 10% 80%, #fff, transparent),
+      radial-gradient(2px 2px at 90% 10%, #b09aff, transparent),
+      radial-gradient(1px 1px at 30% 50%, #fff, transparent),
+      radial-gradient(1px 1px at 70% 40%, #fff, transparent);
+    background-size: 600px 600px;
+    opacity: 0.45;
+    animation: drift 80s linear infinite;
+  }
+  .stars::after { background-size: 400px 400px; opacity: 0.3; animation-duration: 120s; }
+  @keyframes drift {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-600px); }
+  }
+
+  section { max-width: 1080px; margin: 0 auto; padding: 64px 24px; }
+  section + section { border-top: 1px solid var(--line); }
+  h2 {
+    font-size: 36px; font-weight: 700; letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    color: var(--muted); font-size: 17px;
+    max-width: 620px; margin-bottom: 40px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .feature {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .feature .icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #1a1407; font-weight: 800;
+  }
+  .feature h3 {
+    font-size: 18px; font-weight: 700; margin-bottom: 8px;
+  }
+  .feature p { color: var(--muted); font-size: 14px; }
+
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .tier {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+  }
+  .tier .label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .tier .name {
+    font-size: 22px; font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 24px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--muted); margin: 0 8px; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 64px 20px 48px; }
+    .hero h1 { font-size: 42px; }
+    .hero p.lede { font-size: 17px; }
+    h2 { font-size: 28px; }
+    .nav-links { gap: 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" aria-hidden="true"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>StellarForge</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="eyebrow">Constellation Atelier · iPhone</span>
+  <h1>Weave the night sky.</h1>
+  <p class="lede">
+    Inside a slowly rotating vault of concrete polyhedra, scattered ember-stars wait to be
+    reconnected. Tap any two stars to weave a glowing line. Match the hidden shape and the
+    constellation locks in.
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://apps.apple.com" target="_blank" rel="noopener">Download on the App Store</a>
+    <a class="btn btn-ghost" href="support.html">Learn more</a>
+  </div>
+</header>
+
+<section>
+  <h2>Five rooms. One forge.</h2>
+  <p class="section-sub">Every room is a quiet chamber of the atelier, built for the way you want to weave tonight.</p>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">★</div>
+      <h3>Atrium</h3>
+      <p>An at-a-glance dashboard of your forge — streaks, milestones, and what awaits tonight.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">◇</div>
+      <h3>Forge Room</h3>
+      <p>Where weaving happens. Gesture-driven, no buttons to obscure the stars.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">◐</div>
+      <h3>Daily Cipher</h3>
+      <p>A new constellation rotates by week. Return daily to keep your streak.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">❖</div>
+      <h3>Codex</h3>
+      <p>An atlas of every constellation with searchable names and lore.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">✦</div>
+      <h3>Atelier</h3>
+      <p>Capture from camera or library, switch palettes, set custom forge backgrounds.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">∎</div>
+      <h3>Profile &amp; Settings</h3>
+      <p>Every statistic, twenty milestones, and independent sound &amp; haptic controls.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Twenty-four constellations. Four tiers.</h2>
+  <p class="section-sub">Each tier deepens the craft. From the simplest apprentice knots to the archmage's most intricate weaves.</p>
+  <div class="tiers">
+    <div class="tier"><div class="label">Tier I</div><div class="name">Apprentice</div></div>
+    <div class="tier"><div class="label">Tier II</div><div class="name">Adept</div></div>
+    <div class="tier"><div class="label">Tier III</div><div class="name">Master</div></div>
+    <div class="tier"><div class="label">Tier IV</div><div class="name">Archmage</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Private by design.</h2>
+  <p class="section-sub">
+    No account. No analytics. No network call. Every constellation you forge, every capture you keep,
+    every preference you set, lives inside the app's own sandbox on your iPhone.
+  </p>
+  <p>
+    Read the full <a href="privacy.html">privacy policy</a> or reach out at
+    <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>.
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 StellarForge. All rights reserved.</p>
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html">Support</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Use</a> ·
+    <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

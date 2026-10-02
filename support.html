@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — StellarForge</title>
+<meta name="description" content="StellarForge support. Help, FAQ, and contact for the StellarForge Constellation Atelier.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a14;
+    --bg-2: #12121f;
+    --ink: #e8e8f0;
+    --muted: #9090a8;
+    --accent: #d4af37;
+    --accent-2: #8a6ad4;
+    --line: rgba(255,255,255,0.08);
+  }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { opacity: 0.85; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 18px; letter-spacing: 0.5px;
+  }
+  .brand-mark {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffe9a3 0%, var(--accent) 40%, #6b4d0e 80%);
+    box-shadow: 0 0 18px rgba(212,175,55,0.6);
+  }
+  .nav-links { display: flex; gap: 22px; font-size: 14px; }
+  .nav-links a { color: var(--ink); opacity: 0.8; }
+  .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 72px 24px 64px;
+  }
+  h1 {
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffe9a3 0%, var(--accent) 35%, var(--accent-2) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 12px;
+  }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+  h2 {
+    font-size: 22px; font-weight: 700;
+    margin-top: 36px; margin-bottom: 10px;
+  }
+  h3 { font-size: 17px; font-weight: 600; margin-top: 18px; margin-bottom: 6px; }
+  p, li { color: #e8e8f0; font-size: 15px; margin-bottom: 12px; }
+  ul, ol { padding-left: 22px; margin-bottom: 16px; }
+  li { margin-bottom: 6px; }
+
+  .contact-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    margin: 24px 0 40px;
+  }
+  .contact-card .label {
+    color: var(--muted);
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .contact-card .email {
+    font-size: 24px; font-weight: 700;
+  }
+  .contact-card .email a { color: var(--accent); }
+
+  .qa {
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .qa:first-of-type { border-top: none; padding-top: 0; }
+  .qa h3 { margin-top: 0; color: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 24px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--muted); margin: 0 8px; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    main { padding: 48px 20px; }
+    h1 { font-size: 32px; }
+    .nav-links { gap: 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>StellarForge</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <h1>Support</h1>
+  <p class="meta">We're here to help you forge the night sky.</p>
+
+  <div class="contact-card">
+    <div class="label">Contact the developer</div>
+    <div class="email"><a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a></div>
+    <p style="color: var(--muted); font-size: 14px; margin-top: 8px;">
+      We read every message. Typical response time: 1–3 business days.
+    </p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+
+  <div class="qa">
+    <h3>How do I play?</h3>
+    <p>
+      Open the Forge Room, look at the scattered ember-stars, and tap any two stars to weave
+      a glowing line between them. Keep weaving until the lines match the hidden target
+      shape. When it matches, the constellation locks in and is added to your Codex.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>What are the four tiers?</h3>
+    <p>
+      Apprentice, Adept, Master, and Archmage. Each tier introduces more stars, longer target
+      shapes, and tighter tolerances. The Archmage tier is reserved for the most intricate
+      weaves in the atelier.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>How does the Daily cipher work?</h3>
+    <p>
+      A new constellation is offered each day. Daily ciphers rotate by week, so every
+      weaver faces the same shape on the same day. Return daily to build your streak and
+      earn Scholar milestones.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>Can I use my own photo as a background?</h3>
+    <p>
+      Yes. Open the Atelier tab and tap "Capture" to take a new photo, or "Import" to
+      choose one from your library. The selected photo becomes the background of your
+      Forge. Switch back to any of the four built-in palettes in Settings at any time.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>What are the four palettes?</h3>
+    <p>
+      Lemon Gold, Twilight Violet, Emerald Lab, and Rose Quartz. Each one recolors the
+      entire interface to a single mood. Pick the one that suits tonight's forge.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>Where is my data stored?</h3>
+    <p>
+      Only on your iPhone, inside the App's sandbox. StellarForge has no account system,
+      no analytics, and no network call. See the
+      <a href="privacy.html">Privacy Policy</a> for the full story.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>How do I reset my progress?</h3>
+    <p>
+      Go to Settings → Reset Profile. This will clear all constellations, statistics,
+      achievements, and custom backgrounds from your device. The action cannot be undone,
+      so please be certain.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>The app crashed. What should I do?</h3>
+    <p>
+      Please email <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a> with:
+      your iPhone model, iOS version, what you were doing when it crashed, and ideally
+      a screenshot. We will investigate.
+    </p>
+  </div>
+
+  <div class="qa">
+    <h3>Does StellarForge support iPad or Mac?</h3>
+    <p>
+      StellarForge is currently iPhone only. We may explore other form factors in the
+      future.
+    </p>
+  </div>
+
+  <h2>Still need help?</h2>
+  <p>
+    Reach out directly at
+    <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>.
+    Include as much detail as you can — your device, iOS version, and a description of
+    the issue — and we will get back to you.
+  </p>
+</main>
+
+<footer>
+  <p>© 2026 StellarForge. All rights reserved.</p>
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html">Support</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Use</a> ·
+    <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

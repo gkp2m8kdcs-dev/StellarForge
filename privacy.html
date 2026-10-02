@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — StellarForge</title>
+<meta name="description" content="StellarForge privacy policy. StellarForge is private by design — no account, no analytics, no network call.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a14;
+    --bg-2: #12121f;
+    --ink: #e8e8f0;
+    --muted: #9090a8;
+    --accent: #d4af37;
+    --accent-2: #8a6ad4;
+    --line: rgba(255,255,255,0.08);
+  }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { opacity: 0.85; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 18px; letter-spacing: 0.5px;
+  }
+  .brand-mark {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffe9a3 0%, var(--accent) 40%, #6b4d0e 80%);
+    box-shadow: 0 0 18px rgba(212,175,55,0.6);
+  }
+  .nav-links { display: flex; gap: 22px; font-size: 14px; }
+  .nav-links a { color: var(--ink); opacity: 0.8; }
+  .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 72px 24px 64px;
+  }
+  h1 {
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffe9a3 0%, var(--accent) 35%, var(--accent-2) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 12px;
+  }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 40px; }
+  h2 {
+    font-size: 22px; font-weight: 700;
+    margin-top: 36px; margin-bottom: 10px;
+    color: var(--ink);
+  }
+  h3 { font-size: 17px; font-weight: 600; margin-top: 20px; margin-bottom: 6px; }
+  p, li { color: var(--ink); font-size: 15px; margin-bottom: 12px; }
+  ul, ol { padding-left: 22px; margin-bottom: 16px; }
+  li { margin-bottom: 6px; }
+  .pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 24px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--muted); margin: 0 8px; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    main { padding: 48px 20px; }
+    h1 { font-size: 32px; }
+    .nav-links { gap: 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span>StellarForge</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <span class="pill">Privacy Policy</span>
+  <h1>StellarForge is private.</h1>
+  <p class="meta">Last updated: 2026-10-02 · Effective immediately</p>
+
+  <p>
+    StellarForge ("the App", "we", "our") is a single-player constellation weaving atelier
+    for iPhone. This policy explains what data the App handles. The short version:
+    <strong>the App does not collect, transmit, or sell any personal data.</strong>
+  </p>
+
+  <h2>1. Data we do not collect</h2>
+  <p>
+    StellarForge does not include analytics, advertising SDKs, crash reporting services,
+    account systems, or any networking code that exports user data. There is no server, no
+    telemetry endpoint, and no third-party tracker of any kind. Your activity inside the
+    App never leaves your device.
+  </p>
+
+  <h2>2. Data stored on your device</h2>
+  <p>The App stores the following data locally on your iPhone, inside the App's sandbox:</p>
+  <ul>
+    <li><strong>Game progress</strong> — constellations forged, edges drawn, tier completion.</li>
+    <li><strong>Statistics</strong> — streak count, fastest weave, total play time.</li>
+    <li><strong>Achievements</strong> — milestones earned across the Weaver, Artisan, Scholar, and Curator categories.</li>
+    <li><strong>Preferences</strong> — palette selection, sound and haptic toggles, custom background choice.</li>
+    <li><strong>Custom backgrounds</strong> — photos you take with the camera or import from your library, used solely as forge backgrounds.</li>
+  </ul>
+  <p>
+    All of the above are stored using Apple's standard sandbox storage. They are never
+    uploaded to a server and cannot be read by us or by anyone else.
+  </p>
+
+  <h2>3. Permissions</h2>
+  <p>The App requests the following iOS permissions, and only when needed:</p>
+  <ul>
+    <li><strong>Camera</strong> — used to capture a custom forge background. The image is stored locally and never leaves your device. You may decline; the App remains fully usable.</li>
+    <li><strong>Photo Library (read-only)</strong> — used to import an existing photo as a custom forge background. Images you do not select are not accessed.</li>
+    <li><strong>Haptics</strong> — used for tactile feedback during weaving. Haptic feedback can be disabled in Settings.</li>
+  </ul>
+  <p>
+    StellarForge does not request access to your contacts, location, microphone, microphone,
+    health data, tracking, or any other sensitive iOS permission.
+  </p>
+
+  <h2>4. Apple frameworks used</h2>
+  <p>The App uses only Apple's first-party SwiftUI, Foundation, AVFoundation (for sound playback), and Core Haptics frameworks. No third-party SDKs are bundled.</p>
+
+  <h2>5. Children</h2>
+  <p>
+    StellarForge is suitable for all ages. It does not target children as a separate audience
+    and does not collect any data from any user, minor or otherwise.
+  </p>
+
+  <h2>6. Deleting your data</h2>
+  <p>
+    Uninstalling StellarForge permanently deletes all locally stored data, including any
+    custom backgrounds you captured. There is nothing to request from a server because nothing
+    was ever sent to one.
+  </p>
+
+  <h2>7. Changes to this policy</h2>
+  <p>
+    If we ever change this policy, we will update the "Last updated" date above and release
+    the change together with an App Store update. We will not silently broaden data collection.
+  </p>
+
+  <h2>8. Contact</h2>
+  <p>
+    Questions about privacy? Write to us at
+    <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>. We read every email.
+  </p>
+</main>
+
+<footer>
+  <p>© 2026 StellarForge. All rights reserved.</p>
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html">Support</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Use</a> ·
+    <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
